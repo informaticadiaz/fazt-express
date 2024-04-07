@@ -34,5 +34,30 @@ app.get('/sum/:a/:b', (req, res) => {
   res.send(`Resultado: ${parseInt(a) + parseInt(b)}`)
 })
 
+// En este caso usamos una validacion
+// utilizo un if para la validación
+// cuando el usuario sea js
+// cuando en la ruta sea users/js/photo
+// se envia un archivo de imagen
+// si no es asi
+// se envia un mensaje
+app.get('/users/:username/photo', (req, res) => {
+  if (req.params.username === 'js') {
+    return res.sendFile('./static/javascript.png', {
+      root: __dirname
+    })
+  }
+  
+  res.send('el usario no tiene acceso')
+})
+
+// En este caso usamos dir/param/dir/param
+// es una opcion valida para la ruta
+// no es necesario que los parametros
+// esten uno detras del otro. 
+app.get('/name/:name/age/:age', (req, res) => {
+  res.send(`El usuario ${req.params.nombre} tiene ${req.params.age} años`)
+})
+
 app.listen(3000)
 console.log('Server listening on port 3000')
