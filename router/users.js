@@ -1,5 +1,5 @@
-// usando el metodo router de express
-// es util usar este metodo para
+// usando el modulo router de express
+// es util usar este modulo para
 // poder dividir la aplicacion
 // y tener nuestras rutas en archivos
 

@@ -1,0 +1,26 @@
+
+
+<%- include('partials/header.ejs'); %>
+<%# esto es un comentario de ejs #%>
+  <h1>
+    <%= title %>
+  </h1>
+  <p>
+    utilizamos include de ejs<br>
+    consulta la documentacion de ejs<br>
+    https://ejs.co/<br>
+  </p> 
+  <%# usando logica en ejs #%>
+  <% if (isActive) { %>
+    <p>isActive is True</p>
+  <% } else { %>
+    <p>isActive is False</p>
+  <% } %>
+
+  <ul>
+    
+    <% for(let i = 0; i < users.length; i++) { %>
+      <li><%= users[i].name %> <%= users[i].lastname %></li>
+    <% } %>
+  </ul>
+<%- include('partials/footer.ejs'); %>

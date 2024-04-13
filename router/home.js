@@ -1,11 +1,19 @@
-// usando el metodo router de express
-// es util usar este metodo para
+// usando el modulo router de express
+// es util usar este modulo para
 // poder dividir la aplicacion
 // y tener nuestras rutas en archivos
 
-const express = require('express')
+// en user usamos el modulo router
+// otra forma de usar el modulo
+// mas sencilla es
+// como Router es una parte del objeto
+// exportado por el modulo express
+// puedo desestructurar el objeto exportado
+// quedando de esta forma: 
 
-const router = express.Router()
+const { Router } = require('express')
+
+const router = Router()
 
 router.all('/about', (req, res) => {
   res.send('about') 
