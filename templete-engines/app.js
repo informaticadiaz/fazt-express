@@ -15,6 +15,7 @@ const express = require('express')
 const morgan = require('morgan')
 const path = require('path')
 require('ejs')
+const axios = require('axios')
 
 const app = express()
 
@@ -50,7 +51,9 @@ app.get('/', (req, res) => {
       lastname: 'Connor'
     }
   ]
+
   const title = 'Mi pagina principal'
+
   res.render('index', {
     title,
     isActive,
@@ -59,11 +62,21 @@ app.get('/', (req, res) => {
 })
 
 app.get('/dashboard', (req, res) => {
- res.render('dashboard') 
+  res.render('dashboard')
 })
 
 app.get('/users', (req, res) => {
- res.render('users') 
+  res.render('users')
+})
+
+app.get('/posts', async (req, res) => {
+
+  const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
+  console.log(response.data)
+
+  res.render('posts', {
+    posts: response.data
+  })
 })
 
 app.listen(app.get('port'))
